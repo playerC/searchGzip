@@ -1,0 +1,53 @@
+= README
+player <playerc@msn.cn>
+v0.0.1,Wed, 04 Mar 2020
+
+== Why wrote this program ?
+
+为什么写这个程序.
+
+I need to extract resources from executable file written in the Go language.
+
+我需要从用 Go 语言编写的可执行文件中提取资源。
+
+The developer of this executable file uses the *go-bindata* program to convert 
+the resource file into a go language source code and compile it into 
+the executable file.
+
+这个可执行文件的开发者使用go-bindata程序，把资源文件转换成go语言源码，并编译到可执行文件中.
+
+Go-bindata uses gzip to compress the resource file and attach it directly to 
+the code as a constant, and these constant values are not disturbed or encrypted.
+
+go-bindata使用gzip压缩了资源文件并直接作为常量附加到代码中，而这些常量值没有被扰乱或者加密.
+
+So you can find The Gzip file data directly from the executable and extract it,
+this program is created to do it.
+
+所以可以直接从可执行中找出Gzip文件数据并提取出来，这个程序就这样产生了.
+
+== How To Build
+
+如何构建.
+
+------------------
+cd SOURCE_DIR/
+cmake -S ./ -B ./target/
+cd ./target
+make
+------------------
+
+== Usage
+
+使用方法
+
+--------------------
+./searchGzip BIN_FILE
+--------------------
+
+searchGzip looks for gzip file information in BIN_FILE and unzips it to the 
+current folder.
+
+searchGzip 会在 BIN_FILE 中查找 gzip 文件信息，并解压到当前文件夹.
+
+
